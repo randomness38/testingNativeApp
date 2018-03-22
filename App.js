@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux'
 import { View, Button,StyleSheet } from 'react-native';
-import configureStore from './configureStore'
+import configureStore from './src/store/configureStore'
 import t from 'tcomb-form-native';
 
 const store = configureStore()

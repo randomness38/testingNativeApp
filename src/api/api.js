@@ -1,5 +1,5 @@
 import { AsyncStorage } from 'react-native'
-import { formatDeckResults } from './helper'
+import { formatDeckResults } from '../util/helper'
 
 const DECK_STORAGE_KEY = 'flashCards:deck'
 // getDecks : title, questions, answers 데이터를 가진 Deck Objects 를 return

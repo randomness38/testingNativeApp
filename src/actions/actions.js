@@ -1,4 +1,4 @@
-import * as api from './api'
+import * as api from '../api/api'
 
 export const RECEIVE_DECKS = 'RECEIVE_DECKS'
 export const GET_DECK = 'GET_DECK'
