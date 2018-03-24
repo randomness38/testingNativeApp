@@ -4,6 +4,7 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import validate from "../util/validate";
 import RemoteSubmitButton from "../util/RemoteSubmitButton";
 import RenderField from "./RenderField"
+import RenderOpts from "./RenderOpts"
 
 // const renderField = ({ input, label, type, meta: { touched, error } }) => (
 //     <View>
@@ -13,34 +14,33 @@ import RenderField from "./RenderField"
 //     </View>
 // );
 
-const renderOpts = ({ fields, meta: { touched, error, submitFailed } }) => (
-    <View>
-        <View>
-            <Button
-                type="button"
-                onPress={() => fields.push()}
-                title='Add Incorrect Opt'
-            />
-        </View>
-        {fields.map((opt, index) => (
-            <View key={index}>
-                <Button
-                    type="button"
-                    title="Remove Opt"
-                    onPress={() => fields.remove(index)}
-                />
-                <Field
-                    name={opt}
-                    type="text"
-                    component={RenderField}
-                    label={`Incorrect Opt #${index + 1}`}
-                />
-            </View>
-        ))}
-        {/*{error && <View  style={{ color: 'red' }}>{error}</View>}*/}
-        {(touched || submitFailed) && error && <Text  style={{ color: 'red' }}>{error}</Text>}
-    </View>
-);
+// const renderOpts = ({ fields, meta: { touched, error, submitFailed } }) => (
+//     <View>
+//         <View>
+//             <Button
+//                 type="button"
+//                 onPress={() => fields.push()}
+//                 title='Add Incorrect Opt'
+//             />
+//         </View>
+//         {fields.map((opt, index) => (
+//             <View key={index}>
+//                 <Button
+//                     type="button"
+//                     title="Remove Opt"
+//                     onPress={() => fields.remove(index)}
+//                 />
+//                 <Field
+//                     name={opt}
+//                     type="text"
+//                     component={RenderField}
+//                     label={`Incorrect Opt #${index + 1}`}
+//                 />
+//             </View>
+//         ))}
+//         {(touched || submitFailed) && error && <Text  style={{ color: 'red' }}>{error}</Text>}
+//     </View>
+// );
 
 const renderCards = ({ fields, meta: { touched, error, submitFailed } }) => (
     <View>
@@ -68,7 +68,7 @@ const renderCards = ({ fields, meta: { touched, error, submitFailed } }) => (
                     component={RenderField}
                     label="Answer"
                 />
-                <FieldArray name={`${card}.opts`} component={renderOpts} />
+                <FieldArray name={`${card}.opts`} component={RenderOpts} />
             </View>
         ))}
     </View>
