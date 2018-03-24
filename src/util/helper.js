@@ -44,7 +44,7 @@ export function formatDeckResults (results) {
         : JSON.parse(results)
 }
 
-// asyncStorage 안쓰고 Redux 만 사용해서 데이터 처리하면
+// asyncStorage 안쓰고 redux 만 사용해서 데이터 처리하면
 // notification 이랑 permission 어떻게 처리하지
 export function clearLocalNotification () {
     return AsyncStorage.removeItem(NOTIFICATION_KEY)
