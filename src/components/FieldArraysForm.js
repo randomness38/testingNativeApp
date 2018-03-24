@@ -3,14 +3,15 @@ import {View, Text, ScrollView, TextInput, Button } from 'react-native'
 import { Field, FieldArray, reduxForm } from 'redux-form';
 import validate from "../util/validate";
 import RemoteSubmitButton from "../util/RemoteSubmitButton";
+import RenderField from "./RenderField"
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
-    <View>
-        <Text style={{fontSize:20}}>{label}</Text>
-        <TextInput style={{fontSize:20}} {...input} type={type} placeholder={label} />
-            {touched && error && <Text style={{ color: 'red' }}>{error}</Text>}
-    </View>
-);
+// const renderField = ({ input, label, type, meta: { touched, error } }) => (
+//     <View>
+//         <Text style={{fontSize:20}}>{label}</Text>
+//         <TextInput style={{fontSize:20}} {...input} type={type} placeholder={label} />
+//             {touched && error && <Text style={{ color: 'red' }}>{error}</Text>}
+//     </View>
+// );
 
 const renderOpts = ({ fields, meta: { touched, error, submitFailed } }) => (
     <View>
@@ -31,7 +32,7 @@ const renderOpts = ({ fields, meta: { touched, error, submitFailed } }) => (
                 <Field
                     name={opt}
                     type="text"
-                    component={renderField}
+                    component={RenderField}
                     label={`Incorrect Opt #${index + 1}`}
                 />
             </View>
@@ -58,13 +59,13 @@ const renderCards = ({ fields, meta: { touched, error, submitFailed } }) => (
                 <Field
                     name={`${card}.question`}
                     type="text"
-                    component={renderField}
+                    component={RenderField}
                     label="Question"
                 />
                 <Field
                     name={`${card}.answer`}
                     type="text"
-                    component={renderField}
+                    component={RenderField}
                     label="Answer"
                 />
                 <FieldArray name={`${card}.opts`} component={renderOpts} />
@@ -80,7 +81,7 @@ const FieldArraysForm = props => {
             <Field
                 name="deckTitle"
                 type="text"
-                component={renderField}
+                component={RenderField}
                 label="Deck Title"
             />
             <FieldArray name="cards" component={renderCards} />
