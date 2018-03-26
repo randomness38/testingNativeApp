@@ -4,7 +4,7 @@ import { Field } from 'redux-form';
 
 import RenderField from './RenderField'
 
-export default RenderOpts = ({ fields, meta: { touched, error, submitFailed } }) => {
+export default RenderOpts = ({ onReChange, reInput, fields, meta: { touched, error, submitFailed } }) => {
     return (
         <View>
             <View>
@@ -26,6 +26,8 @@ export default RenderOpts = ({ fields, meta: { touched, error, submitFailed } })
                         type="text"
                         component={RenderField}
                         label={`Incorrect Opt #${index + 1}`}
+                        onReChange={(text) => onReChange(text)}
+                        reInput={reInput}
                     />
                 </View>
             ))}
